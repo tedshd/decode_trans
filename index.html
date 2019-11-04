@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>trans char</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+<style>
+    .disabled {
+        color: #000 !important;
+    }
+    form {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+<form id="trans_1" class="pure-form">
+    <fieldset>
+        <legend>全形轉半形</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+
+<form id="trans_2" class="pure-form">
+    <fieldset>
+        <legend>半形轉全形</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_7" class="pure-form">
+    <fieldset>
+        <legend>10 進制轉 2 進制</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_8" class="pure-form">
+    <fieldset>
+        <legend>字元轉 10 進制</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_9" class="pure-form">
+    <fieldset>
+        <legend>數字轉 16 進制</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_10" class="pure-form">
+    <fieldset>
+        <legend>2 進制轉字元</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_11" class="pure-form">
+    <fieldset>
+        <legend>16 進制轉字元</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+<form id="trans_12" class="pure-form">
+    <fieldset>
+        <legend>16 進制轉 10 進制</legend>
+        <div class="pure-g">
+
+        <input class="pure-u-1 pure-u-md-1-3" type="text" placeholder="請輸入">
+
+        <button type="submit" class="pure-button pure-button-primary">轉換</button>
+        <input class="disabled pure-u-1 pure-u-md-1-3" type="text" disabled>
+        </div>
+    </fieldset>
+</form>
+</body>
+<script src="./decode_trans.js"></script>
+<script>
+  var trans1 = document.querySelector('#trans_1'),
+    trans2 = document.querySelector('#trans_2'),
+    trans7 = document.querySelector('#trans_7'),
+        trans8 = document.querySelector('#trans_8'),
+        trans9 = document.querySelector('#trans_9'),
+        trans10 = document.querySelector('#trans_10'),
+        trans11 = document.querySelector('#trans_11'),
+        trans12 = document.querySelector('#trans_12');
+    trans1.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans1.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.full2half();
+        console.log(oldValue);
+        console.log(newValue);
+        trans1.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans2.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans2.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.half2full();
+        console.log(oldValue);
+        console.log(newValue);
+        trans2.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans7.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans7.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.dec2bin();
+        console.log(oldValue);
+        console.log(newValue);
+        trans7.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans8.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans8.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.char2dec();
+        console.log(oldValue);
+        console.log(newValue);
+        trans8.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans9.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans9.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.dec2hex();
+        console.log(oldValue);
+        console.log(newValue);
+        trans9.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans10.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans10.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.bin2char();
+        console.log(oldValue);
+        console.log(newValue);
+        trans10.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans11.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans11.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.hex2char();
+        console.log(oldValue);
+        console.log(newValue);
+        trans11.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+    trans12.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var oldValue = trans12.querySelectorAll('input[type=text]')[0].value,
+            newValue = oldValue.hex2dec();
+        console.log(oldValue);
+        console.log(newValue);
+        trans12.querySelectorAll('input[type=text]')[1].value = newValue;
+    })
+</script>
+</html>
