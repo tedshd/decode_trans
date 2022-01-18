@@ -79,7 +79,7 @@
     return String.fromCharCode(parseInt(this, 16));
   }
   
-String.prototype.byte2array = function() {
+String.prototype.toByteArray = function() {
   var str = this.split('');
   for (var i = 0; i < str.length; i++) {
     str[i] = str[i].charCodeAt(0);
